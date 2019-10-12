@@ -1,18 +1,26 @@
 <template>
   <v-container>
     <v-card tile>
-      <v-img dark src="../assets/profile.jpg">
-        <v-row
-          align="center"
-          justify="center"
-          :class="color == 'dark'? 'fill-height dark-gradient' : 'fill-height light-gradient'"
-          style="color:#fff"
-        >
-          <h1 class="display-2 d-none d-md-flex font-weight-light mt-4">Full-Stack Developer</h1>
-          <h2 class="d-flex d-md-none headline font-weight-light mt-4">Full-Stack Developer</h2>
-          <h4 class="subheading">YASH WANVARI</h4>
-        </v-row>
-      </v-img>
+      <transition name="fade" mode="out-in">
+        <v-img dark src="../assets/profile.jpg">
+          <v-row
+            align="center"
+            justify="center"
+            :class="color == 'dark'? 'fill-height dark-gradient' : 'fill-height light-gradient'"
+            style="color:#fff"
+          >
+            <transition name="fade" mode="out-in">
+              <h1 class="display-2 d-none d-md-flex font-weight-light mt-4">Full-Stack Developer</h1>
+            </transition>
+            <transition name="fade" mode="out-in">
+              <h2 class="d-flex d-md-none headline font-weight-light mt-4">Full-Stack Developer</h2>
+            </transition>
+            <transition name="fade" mode="out-in">
+              <h4 class="subheading">YASH WANVARI</h4>
+            </transition>
+          </v-row>
+        </v-img>
+      </transition>
     </v-card>
     <About />
   </v-container>
