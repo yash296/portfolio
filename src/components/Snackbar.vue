@@ -10,9 +10,8 @@
   >
     Click
     <v-icon
-      :dark="color == 'dark' ? true : false"
-      style="font-size:30px"
-      class="mx-2"
+      :style="color == 'dark' ? 'font-size:30px;color:#fff': 'font-size:30px;color:#000'"
+      class="mx-1"
     >mdi-invert-colors</v-icon>
     to switch to {{color == 'dark'? 'light': 'dark'}} theme!
     <v-btn

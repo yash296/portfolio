@@ -19,17 +19,32 @@
       <v-btn text small class="d-none d-md-flex" to="/portfolio">Portfolio</v-btn>
       <v-btn text small class="d-none d-md-flex" to="/skills">Skills</v-btn>
       <div class="flex-grow-1"></div>
-
-      <v-btn
-        :title="SwitchColor == false?'Switch to light theme':'Switch to dark theme'"
-        depressed
-        small
-        fab
-        text
-        @click="SwitchColor = !SwitchColor"
-      >
-        <v-icon>mdi-invert-colors</v-icon>
-      </v-btn>
+      <div style="width:145px" class="d-none d-md-flex">
+        <v-row no-gutters justify="end">
+          <v-btn
+            :title="SwitchColor == false?'Switch to light theme':'Switch to dark theme'"
+            depressed
+            small
+            fab
+            text
+            @click="SwitchColor = !SwitchColor"
+          >
+            <v-icon>mdi-invert-colors</v-icon>
+          </v-btn>
+        </v-row>
+      </div>
+      <div class="d-flex d-md-none">
+        <v-btn
+          :title="SwitchColor == false?'Switch to light theme':'Switch to dark theme'"
+          depressed
+          small
+          fab
+          text
+          @click="SwitchColor = !SwitchColor"
+        >
+          <v-icon>mdi-invert-colors</v-icon>
+        </v-btn>
+      </div>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app bottom temporary :dark="color=='dark' ? true:false">
       <v-list nav>
@@ -37,11 +52,9 @@
           <v-list-item to="/">
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
-
           <v-list-item to="/portfolio">
             <v-list-item-title>Portfolio</v-list-item-title>
           </v-list-item>
-
           <v-list-item to="/skills">
             <v-list-item-title>Skills</v-list-item-title>
           </v-list-item>
