@@ -15,10 +15,9 @@
         <v-img v-else src="../assets/ywLight.png" height="120" width="145" aspect-ratio="1"></v-img>
       </v-toolbar-title>
       <div class="flex-grow-1 d-none d-md-flex"></div>
-      <v-btn text small class="d-none d-md-flex">About</v-btn>
-      <v-btn text small class="d-none d-md-flex">Portfolio</v-btn>
-      <v-btn text small class="d-none d-md-flex">Skills</v-btn>
-      <v-btn text small class="d-none d-md-flex">Contact</v-btn>
+      <v-btn text small class="d-none d-md-flex" to="/">About</v-btn>
+      <v-btn text small class="d-none d-md-flex" to="/portfolio">Portfolio</v-btn>
+      <v-btn text small class="d-none d-md-flex" to="/skills">Skills</v-btn>
       <div class="flex-grow-1"></div>
 
       <v-btn
@@ -35,20 +34,16 @@
     <v-navigation-drawer v-model="drawer" app bottom temporary :dark="color=='dark' ? true:false">
       <v-list nav>
         <v-list-item-group>
-          <v-list-item>
+          <v-list-item to="/">
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item to="/portfolio">
             <v-list-item-title>Portfolio</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item to="/skills">
             <v-list-item-title>Skills</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Contact</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>

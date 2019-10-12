@@ -14,15 +14,18 @@
         </v-row>
       </v-img>
     </v-card>
+    <About />
   </v-container>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import About from "../components/About";
 export default {
   name: "home",
-  components: {},
+  components: {
+    About
+  },
   computed: {
     color() {
       return this.$store.getters.getColor;

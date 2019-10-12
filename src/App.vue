@@ -6,17 +6,24 @@
         <v-card flat tile :dark="color == 'dark' ? true : false ">
           <router-view />
         </v-card>
+        <Snackbar />
       </v-content>
+      <Footer />
     </v-app>
   </div>
 </template>
 
 <script>
 import AppBar from "./components/AppBar";
+import Footer from "./components/Footer";
+import Snackbar from "./components/Snackbar";
 export default {
   components: {
-    AppBar
+    AppBar,
+    Footer,
+    Snackbar
   },
+  data: () => ({}),
   computed: {
     color() {
       return this.$store.getters.getColor;
