@@ -5,7 +5,7 @@
       <v-divider></v-divider>
       <v-card-text
         class="headline"
-      >My career began developing functional front-end user interfaces which soon trasistioned to building full-stack applcations. Apart from this I work on game development for fun!</v-card-text>
+      >My career began developing functional front-end user interfaces which soon transitioned to building full-stack applcations. Apart from this I work on game development for fun!</v-card-text>
       <v-row no-gutters>
         <v-col cols="12">
           <v-card tile flat>
