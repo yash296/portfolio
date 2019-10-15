@@ -26,7 +26,7 @@
               </v-col>
               <v-col
                 cols="12"
-              >A seemless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb.</v-col>
+              >A seamless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb.</v-col>
             </v-row>
           </v-container>
         </v-card>
