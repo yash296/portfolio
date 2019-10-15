@@ -5,33 +5,24 @@
       <div class="flex-grow-1 d-flex d-md-none"></div>
 
       <v-toolbar-title style="padding-top:10px">
-        <v-tooltip v-if="color=='dark'" bottom>
-          <template v-slot:activator="{ on }">
-            <v-img
-              src="../assets/ywDark.png"
-              height="120"
-              width="145"
-              aspect-ratio="1"
-              v-on="on"
-              style="cursor:pointer"
-              @click="openInNewTab('https://github.com/yash296/portfolio')"
-            ></v-img>
-          </template>
-          <span>Click, to look at the source code of this website! Made with VUE</span>
-        </v-tooltip>
-        <v-tooltip v-else bottom>
-          <template v-slot:activator="{ on }">
-            <v-img
-              @click="openInNewTab('https://github.com/yash296/portfolio')"
-              v-on="on"
-              src="../assets/ywLight.png"
-              height="120"
-              width="145"
-              aspect-ratio="1"
-            ></v-img>
-          </template>
-          <span>Click, to look at the source code of this website! Made with VUE</span>
-        </v-tooltip>
+        <v-img
+          v-if="color=='dark'"
+          src="../assets/ywDark.png"
+          height="120"
+          width="145"
+          aspect-ratio="1"
+          style="cursor:pointer"
+          @click="openInNewTab('https://github.com/yash296/portfolio')"
+        ></v-img>
+        <v-img
+          v-else
+          @click="openInNewTab('https://github.com/yash296/portfolio')"
+          style="cursor:pointer"
+          src="../assets/ywLight.png"
+          height="120"
+          width="145"
+          aspect-ratio="1"
+        ></v-img>
       </v-toolbar-title>
       <div class="flex-grow-1 d-none d-md-flex"></div>
       <v-btn text small class="d-none d-md-flex" to="/">About</v-btn>
