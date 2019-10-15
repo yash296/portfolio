@@ -93,9 +93,9 @@ export default {
   watch: {
     SwitchColor(newValue) {
       if (newValue) {
-        this.$store.dispatch("changeColor", "light");
-      } else {
         this.$store.dispatch("changeColor", "dark");
+      } else {
+        this.$store.dispatch("changeColor", "light");
       }
     }
   }
