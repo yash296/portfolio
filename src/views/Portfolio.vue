@@ -61,23 +61,23 @@
         </v-card>
       </v-timeline-item>
 
-      <v-timeline-item color="green lighten-1" fill-dot right>
+      <v-timeline-item color="brown lighten-1" fill-dot right>
         <v-card tile>
-          <v-card-title class="green lighten-1">
-            <v-icon class="mr-4" dark size="42">mdi-camera</v-icon>
-            <h2 class="display-1 white--text font-weight-light">Photography Blog</h2>
+          <v-card-title class="brown lighten-1">
+            <v-icon class="mr-4" dark size="42">mdi-augmented-reality</v-icon>
+            <h2 class="display-1 white--text font-weight-light">AR Website</h2>
             <div class="flex-grow-1"></div>
 
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn
-                  @click="openInNewTab('https://github.com/yash296/photographyBlog')"
-                  fab
-                  icon
-                  v-on="on"
-                >
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-btn fab icon v-on="on" style="cursor:not-allowed">
+                      <v-icon color="#fff">mdi-code-tags</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Sorry, the source code is private</span>
+                </v-tooltip>
               </template>
               <span>View source code</span>
             </v-tooltip>
@@ -85,9 +85,12 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-img src="../assets/photography-blog.gif"></v-img>
+                <v-img src="../assets/ar.gif"></v-img>
               </v-col>
-              <v-col cols="12">A simple photography blog. Made with Vue, Node, Express and MongoDb.</v-col>
+              <v-col cols="12">
+                AR website with video calling, image editor and workflow designer! This is used to communicate directly with our AR device.
+                Made with Vue, Node, Express, MongoDb, Socket, Docker.
+              </v-col>
             </v-row>
           </v-container>
         </v-card>
@@ -184,6 +187,37 @@
                 </video>
               </v-col>
               <v-col cols="12">A level based game with physics involved. Made with Unity.</v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-timeline-item>
+      <v-timeline-item color="green lighten-1" fill-dot right>
+        <v-card tile>
+          <v-card-title class="green lighten-1">
+            <v-icon class="mr-4" dark size="42">mdi-camera</v-icon>
+            <h2 class="display-1 white--text font-weight-light">Photography Blog</h2>
+            <div class="flex-grow-1"></div>
+
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  @click="openInNewTab('https://github.com/yash296/photographyBlog')"
+                  fab
+                  icon
+                  v-on="on"
+                >
+                  <v-icon color="#fff">mdi-code-tags</v-icon>
+                </v-btn>
+              </template>
+              <span>View source code</span>
+            </v-tooltip>
+          </v-card-title>
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <v-img src="../assets/photography-blog.gif"></v-img>
+              </v-col>
+              <v-col cols="12">A simple photography blog. Made with Vue, Node, Express and MongoDb.</v-col>
             </v-row>
           </v-container>
         </v-card>
