@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid class="px-5">
     <v-timeline :dense="$vuetify.breakpoint.smAndDown">
       <v-timeline-item color="purple lighten-2" fill-dot right>
         <v-card tile>
@@ -26,7 +26,7 @@
               </v-col>
               <v-col
                 cols="12"
-              >A seemless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb</v-col>
+              >A seemless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb.</v-col>
             </v-row>
           </v-container>
         </v-card>
@@ -87,7 +87,7 @@
               <v-col cols="12">
                 <v-img src="../assets/photography-blog.gif"></v-img>
               </v-col>
-              <v-col cols="12">A simple photography blog. Made with Vue, Node, Express and MongoDb</v-col>
+              <v-col cols="12">A simple photography blog. Made with Vue, Node, Express and MongoDb.</v-col>
             </v-row>
           </v-container>
         </v-card>
@@ -115,7 +115,7 @@
               </v-col>
               <v-col
                 cols="12"
-              >A quality check and assurance portal developed for a client. Made with Vue, Node, Express and MongoDb</v-col>
+              >A quality check and assurance portal developed for a client. Made with Vue, Node, Express and MongoDb.</v-col>
             </v-row>
           </v-container>
         </v-card>
