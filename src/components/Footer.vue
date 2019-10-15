@@ -8,6 +8,15 @@
         <v-btn fab small title="Email" icon @click="openInNewTab('mailto:wanvari.yash@gmail.com')">
           <v-icon>mdi-email</v-icon>
         </v-btn>
+        <v-btn
+          fab
+          small
+          title="Email"
+          icon
+          @click="openInNewTab('https://www.linkedin.com/in/yash-wanvari-b8a8b4157/')"
+        >
+          <v-icon>mdi-linkedin-box</v-icon>
+        </v-btn>
       </div>
       <div>
         <v-icon>mdi-copyright</v-icon>

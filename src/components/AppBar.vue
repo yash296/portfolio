@@ -3,7 +3,6 @@
     <v-app-bar :dark="color=='dark' ? true:false" app :elevate-on-scroll="true">
       <v-app-bar-nav-icon class="d-flex d-md-none" @click="drawer =true"></v-app-bar-nav-icon>
       <div class="flex-grow-1 d-flex d-md-none"></div>
-
       <v-toolbar-title style="padding-top:10px">
         <v-img
           v-if="color=='dark'"
