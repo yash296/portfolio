@@ -11,7 +11,7 @@
         <v-btn
           fab
           small
-          title="Email"
+          title="LinkedIn"
           icon
           @click="openInNewTab('https://www.linkedin.com/in/yash-wanvari-b8a8b4157/')"
         >
