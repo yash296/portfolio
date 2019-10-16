@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    color: "dark"
+    color: "light"
   },
   getters: {
     getColor: state => {
