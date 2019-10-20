@@ -20,9 +20,7 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <video muted loop autoplay width="100%">
-                  <source src="../assets/origa-video.mp4" />
-                </video>
+                <v-img src="../assets/origa-gif.gif" width="100%"></v-img>
               </v-col>
               <v-col
                 cols="12"
@@ -50,9 +48,7 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <video muted loop autoplay width="100%">
-                  <source src="../assets/dasboard-reports.mp4" />
-                </video>
+                <v-img src="../assets/dashboard-gif.gif" width="100%"></v-img>
               </v-col>
 
               <v-col cols="12">Real time dashboard for a client. Made with Vue.</v-col>
@@ -123,23 +119,23 @@
           </v-container>
         </v-card>
       </v-timeline-item>
-      <v-timeline-item color="cyan lighten-1" fill-dot right>
+      <v-timeline-item color="grey darken-1" fill-dot right>
         <v-card tile>
-          <v-card-title class="cyan lighten-1">
-            <v-icon class="mr-4" dark size="42">mdi-account-switch</v-icon>
-            <h2 class="display-1 white--text font-weight-light">Dev-Connector</h2>
+          <v-card-title class="grey darken-1">
+            <v-icon class="mr-4" dark size="42">mdi-augmented-reality</v-icon>
+            <h2 class="display-1 white--text font-weight-light">Packing Station</h2>
             <div class="flex-grow-1"></div>
 
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn
-                  @click="openInNewTab('https://github.com/yash296/DevConnector')"
-                  fab
-                  icon
-                  v-on="on"
-                >
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-btn fab icon v-on="on" style="cursor:not-allowed">
+                      <v-icon color="#fff">mdi-code-tags</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Sorry, the source code is private</span>
+                </v-tooltip>
               </template>
               <span>View source code</span>
             </v-tooltip>
@@ -148,12 +144,13 @@
             <v-row>
               <v-col cols="12">
                 <video muted loop autoplay width="100%">
-                  <source src="../assets/dev-connector.mp4" />
+                  <source src="../assets/packingstation.mp4" />
                 </video>
               </v-col>
-              <v-col
-                cols="12"
-              >A portfolio sharing, social web app for developers! Made with React, Node, Express, MongoDb.</v-col>
+              <v-col cols="12">
+                Intelligent box tracking application with a packing station to store the box barcodes and item values that can be searched directly throught the website!
+                Made with Vue, Node, Express, MongoDb, Socket, Docker.
+              </v-col>
             </v-row>
           </v-container>
         </v-card>
@@ -218,6 +215,40 @@
                 <v-img src="../assets/photography-blog.gif"></v-img>
               </v-col>
               <v-col cols="12">A simple photography blog. Made with Vue, Node, Express and MongoDb.</v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-timeline-item>
+      <v-timeline-item color="cyan lighten-1" fill-dot left>
+        <v-card tile>
+          <v-card-title class="cyan lighten-1">
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  @click="openInNewTab('https://github.com/yash296/DevConnector')"
+                  fab
+                  icon
+                  v-on="on"
+                >
+                  <v-icon color="#fff">mdi-code-tags</v-icon>
+                </v-btn>
+              </template>
+              <span>View source code</span>
+            </v-tooltip>
+            <div class="flex-grow-1"></div>
+            <v-icon class="mr-4" dark size="42">mdi-account-switch</v-icon>
+            <h2 class="display-1 white--text font-weight-light">Dev-Connector</h2>
+          </v-card-title>
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <video muted loop autoplay width="100%">
+                  <source src="../assets/dev-connector.mp4" />
+                </video>
+              </v-col>
+              <v-col
+                cols="12"
+              >A portfolio sharing, social web app for developers! Made with React, Node, Express, MongoDb.</v-col>
             </v-row>
           </v-container>
         </v-card>
