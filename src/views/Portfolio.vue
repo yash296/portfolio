@@ -122,7 +122,7 @@
       <v-timeline-item color="grey darken-1" fill-dot right>
         <v-card tile>
           <v-card-title class="grey darken-1">
-            <v-icon class="mr-4" dark size="42">mdi-augmented-reality</v-icon>
+            <v-icon class="mr-4" dark size="42">mdi-package-variant</v-icon>
             <h2 class="display-1 white--text font-weight-light">Packing Station</h2>
             <div class="flex-grow-1"></div>
 
