@@ -10,10 +10,10 @@
             style="color:rgba(240, 240, 255, 0.9)"
           >
             <transition name="fade" mode="out-in">
-              <h1 class="display-4 d-none d-md-flex font-weight-light mt-5">Full-Stack Developer</h1>
+              <h1 class="display-4 d-none d-md-flex font-weight-light mt-5">Front-End Developer</h1>
             </transition>
             <transition name="fade" mode="out-in">
-              <h2 class="d-flex d-md-none display-1 font-weight-light mt-4">Full-Stack Developer</h2>
+              <h2 class="d-flex d-md-none display-1 font-weight-light mt-4">Front-End Developer</h2>
             </transition>
             <transition name="fade" mode="out-in">
               <h4 class="title d-none d-md-flex pl-2 mb-3">YASH WANVARI</h4>
