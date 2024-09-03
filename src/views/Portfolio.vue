@@ -1,254 +1,27 @@
 <template>
   <v-container fluid class="px-5">
     <v-timeline :dense="$vuetify.breakpoint.smAndDown">
-      <v-timeline-item color="purple lighten-2" fill-dot right>
+      <v-timeline-item v-for="(item, index) in timelineItems" :key="index" :color="item.color" :fill-dot="item.fillDot" :left="item.left" :right="item.right" :small="item.small">
         <v-card tile>
-          <v-card-title class="purple lighten-2">
-            <v-icon dark size="42" class="mr-4">mdi-earth</v-icon>
-            <h2 class="display-1 white--text font-weight-light">Origa Labs</h2>
+          <v-card-title :class="item.cardTitleClass">
+            <v-icon :class="item.iconClass" dark size="42">{{ item.icon }}</v-icon>
+            <h2 class="display-1 white--text font-weight-light">{{ item.title }}</h2>
             <div class="flex-grow-1"></div>
-
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn fab icon v-on="on" style="cursor:not-allowed">
+                <v-btn fab icon v-on="on" :style="item.buttonStyle" @click="item.buttonAction">
                   <v-icon color="#fff">mdi-code-tags</v-icon>
                 </v-btn>
               </template>
-              <span>Sorry, the source code is private</span>
+              <span>{{ item.tooltipText }}</span>
             </v-tooltip>
           </v-card-title>
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-img src="../assets/origa-gif.gif" width="100%"></v-img>
+                <component :is="item.mediaComponent" :src="item.mediaSrc" width="100%"></component>
               </v-col>
-              <v-col
-                cols="12"
-              >A seamless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb.</v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-
-      <v-timeline-item color="purple lighten-1" fill-dot left small>
-        <v-card tile>
-          <v-card-title class="purple lighten-1">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-btn fab icon v-on="on" style="cursor:not-allowed">
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
-              </template>
-              <span>Sorry, the source code is private</span>
-            </v-tooltip>
-            <div class="flex-grow-1"></div>
-            <h2 class="display-1 white--text font-weight-light mr-4">Dashboard</h2>
-            <v-icon dark size="42">mdi-desktop-mac-dashboard</v-icon>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-img src="../assets/dashboard-gif.gif" width="100%"></v-img>
-              </v-col>
-
-              <v-col cols="12">Real time dashboard for a client. Made with Vue.</v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-
-      <v-timeline-item color="brown lighten-1" fill-dot right>
-        <v-card tile>
-          <v-card-title class="brown lighten-1">
-            <v-icon class="mr-4" dark size="42">mdi-augmented-reality</v-icon>
-            <h2 class="display-1 white--text font-weight-light">AR Website</h2>
-            <div class="flex-grow-1"></div>
-
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-tooltip top>
-                  <template v-slot:activator="{ on }">
-                    <v-btn fab icon v-on="on" style="cursor:not-allowed">
-                      <v-icon color="#fff">mdi-code-tags</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Sorry, the source code is private</span>
-                </v-tooltip>
-              </template>
-              <span>View source code</span>
-            </v-tooltip>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-img src="../assets/ar.gif"></v-img>
-              </v-col>
-              <v-col cols="12">
-                AR website with video calling, image editor and workflow designer! This is used to communicate directly with our AR device.
-                Made with Vue, Node, Express, MongoDb, Socket, Docker.
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-
-      <v-timeline-item color="red lighten-1" fill-dot left small>
-        <v-card tile>
-          <v-card-title class="red lighten-1 justify-end">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-btn fab icon v-on="on" style="cursor:not-allowed">
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
-              </template>
-              <span>Sorry, the source code is private</span>
-            </v-tooltip>
-            <div class="flex-grow-1"></div>
-            <h2 class="display-1 mr-4 white--text font-weight-light text-truncate">Quality Checks</h2>
-            <v-icon dark size="42">mdi-format-list-checks</v-icon>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-img src="../assets/qc.gif" width="100%"></v-img>
-              </v-col>
-              <v-col
-                cols="12"
-              >A quality check and assurance portal developed for a client. Made with Vue, Node, Express and MongoDb.</v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-      <v-timeline-item color="grey darken-1" fill-dot right>
-        <v-card tile>
-          <v-card-title class="grey darken-1">
-            <v-icon class="mr-4" dark size="42">mdi-package-variant</v-icon>
-            <h2 class="display-1 white--text font-weight-light">Packing Station</h2>
-            <div class="flex-grow-1"></div>
-
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-tooltip top>
-                  <template v-slot:activator="{ on }">
-                    <v-btn fab icon v-on="on" style="cursor:not-allowed">
-                      <v-icon color="#fff">mdi-code-tags</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Sorry, the source code is private</span>
-                </v-tooltip>
-              </template>
-              <span>View source code</span>
-            </v-tooltip>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <video muted loop autoplay width="100%">
-                  <source src="../assets/packingstation.mp4" />
-                </video>
-              </v-col>
-              <v-col cols="12">
-                Intelligent box tracking application with a packing station to store the box barcodes and item values that can be searched directly throught the website!
-                Made with Vue, Node, Express, MongoDb, Socket, Docker.
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-
-      <v-timeline-item color="amber darken-1" fill-dot left small>
-        <v-card tile>
-          <v-card-title class="amber darken-1 justify-end">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-btn
-                  @click="openInNewTab('https://github.com/yash296/project-boost')"
-                  fab
-                  icon
-                  v-on="on"
-                >
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
-              </template>
-              <span>View source code</span>
-            </v-tooltip>
-            <div class="flex-grow-1"></div>
-            <h2 class="display-1 mr-4 white--text font-weight-light">Project-boost</h2>
-            <v-icon dark size="42">mdi-rocket</v-icon>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <video muted loop autoplay width="100%">
-                  <source src="../assets/project-boost.mp4" />
-                </video>
-              </v-col>
-              <v-col cols="12">A level based game with physics involved. Made with Unity.</v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-      <v-timeline-item color="green lighten-1" fill-dot right>
-        <v-card tile>
-          <v-card-title class="green lighten-1">
-            <v-icon class="mr-4" dark size="42">mdi-camera</v-icon>
-            <h2 class="display-1 white--text font-weight-light">Photography Blog</h2>
-            <div class="flex-grow-1"></div>
-
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-btn
-                  @click="openInNewTab('https://github.com/yash296/photographyBlog')"
-                  fab
-                  icon
-                  v-on="on"
-                >
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
-              </template>
-              <span>View source code</span>
-            </v-tooltip>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-img src="../assets/photography-blog.gif"></v-img>
-              </v-col>
-              <v-col cols="12">A simple photography blog. Made with Vue, Node, Express and MongoDb.</v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-timeline-item>
-      <v-timeline-item color="cyan lighten-1" fill-dot left>
-        <v-card tile>
-          <v-card-title class="cyan lighten-1">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-btn
-                  @click="openInNewTab('https://github.com/yash296/DevConnector')"
-                  fab
-                  icon
-                  v-on="on"
-                >
-                  <v-icon color="#fff">mdi-code-tags</v-icon>
-                </v-btn>
-              </template>
-              <span>View source code</span>
-            </v-tooltip>
-            <div class="flex-grow-1"></div>
-            <v-icon class="mr-4" dark size="42">mdi-account-switch</v-icon>
-            <h2 class="display-1 white--text font-weight-light">Dev-Connector</h2>
-          </v-card-title>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <video muted loop autoplay width="100%">
-                  <source src="../assets/dev-connector.mp4" />
-                </video>
-              </v-col>
-              <v-col
-                cols="12"
-              >A portfolio sharing, social web app for developers! Made with React, Node, Express, MongoDb.</v-col>
+              <v-col cols="12">{{ item.description }}</v-col>
             </v-row>
           </v-container>
         </v-card>
@@ -259,10 +32,121 @@
 
 <script>
 export default {
-  data: () => ({}),
+  data() {
+    return {
+      timelineItems: [
+        {
+          color: 'purple lighten-2',
+          fillDot: true,
+          right: true,
+          title: 'Origa Labs',
+          icon: 'mdi-earth',
+          cardTitleClass: 'purple lighten-2',
+          buttonStyle: 'cursor:not-allowed',
+          tooltipText: 'Sorry, the source code is private',
+          mediaComponent: 'v-img',
+          mediaSrc: '../assets/origa-gif.gif',
+          description: 'A seamless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb.'
+        },
+        {
+          color: 'purple lighten-1',
+          fillDot: true,
+          left: true,
+          small: true,
+          title: 'Dashboard',
+          icon: 'mdi-desktop-mac-dashboard',
+          cardTitleClass: 'purple lighten-1',
+          buttonStyle: 'cursor:not-allowed',
+          tooltipText: 'Sorry, the source code is private',
+          mediaComponent: 'v-img',
+          mediaSrc: '../assets/dashboard-gif.gif',
+          description: 'Real time dashboard for a client. Made with Vue.'
+        },
+        {
+          color: 'brown lighten-1',
+          fillDot: true,
+          right: true,
+          title: 'AR Website',
+          icon: 'mdi-augmented-reality',
+          cardTitleClass: 'brown lighten-1',
+          buttonStyle: 'cursor:not-allowed',
+          tooltipText: 'View source code',
+          buttonAction: () => this.openInNewTab('https://github.com/yash296/ar-website'),
+          mediaComponent: 'v-img',
+          mediaSrc: '../assets/ar.gif',
+          description: 'AR website with video calling, image editor and workflow designer! This is used to communicate directly with our AR device. Made with Vue, Node, Express, MongoDb, Socket, Docker.'
+        },
+        {
+          color: 'red lighten-1',
+          fillDot: true,
+          left: true,
+          small: true,
+          title: 'Quality Checks',
+          icon: 'mdi-format-list-checks',
+          cardTitleClass: 'red lighten-1',
+          buttonStyle: 'cursor:not-allowed',
+          tooltipText: 'Sorry, the source code is private',
+          mediaComponent: 'v-img',
+          mediaSrc: '../assets/qc.gif',
+          description: 'A quality check and assurance portal developed for a client. Made with Vue, Node, Express and MongoDb.'
+        },
+        {
+          color: 'grey darken-1',
+          fillDot: true,
+          right: true,
+          title: 'Packing Station',
+          icon: 'mdi-package-variant',
+          cardTitleClass: 'grey darken-1',
+          buttonStyle: 'cursor:not-allowed',
+          tooltipText: 'View source code',
+          buttonAction: () => this.openInNewTab('https://github.com/yash296/packing-station'),
+          mediaComponent: 'video',
+          mediaSrc: '../assets/packingstation.mp4',
+          description: 'Intelligent box tracking application with a packing station to store the box barcodes and item values that can be searched directly through the website! Made with Vue, Node, Express, MongoDb, Socket, Docker.'
+        },
+        {
+          color: 'amber darken-1',
+          fillDot: true,
+          left: true,
+          small: true,
+          title: 'Project-boost',
+          icon: 'mdi-rocket',
+          cardTitleClass: 'amber darken-1',
+          buttonAction: () => this.openInNewTab('https://github.com/yash296/project-boost'),
+          mediaComponent: 'video',
+          mediaSrc: '../assets/project-boost.mp4',
+          description: 'A level based game with physics involved. Made with Unity.'
+        },
+        {
+          color: 'green lighten-1',
+          fillDot: true,
+          right: true,
+          title: 'Photography Blog',
+          icon: 'mdi-camera',
+          cardTitleClass: 'green lighten-1',
+          buttonAction: () => this.openInNewTab('https://github.com/yash296/photographyBlog'),
+          mediaComponent: 'v-img',
+          mediaSrc: '../assets/photography-blog.gif',
+          description: 'A simple photography blog. Made with Vue, Node, Express and MongoDb.'
+        },
+        {
+          color: 'cyan lighten-1',
+          fillDot: true,
+          left: true,
+          title: 'Dev-Connector',
+          icon: 'mdi-account-switch',
+          cardTitleClass: 'cyan lighten-1',
+          buttonAction: () => this.openInNewTab('https://github.com/yash296/DevConnector'),
+          mediaComponent: 'video',
+          mediaSrc: '../assets/dev-connector.mp4',
+          description: 'A portfolio sharing, social web app for developers! Made with React, Node, Express, MongoDb.'
+        }
+      ]
+    };
+  },
   methods: {
     openInNewTab(link) {
-      window.open(link);
+      window.open(link, '_blank');
     }
   }
 };
