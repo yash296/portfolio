@@ -36,6 +36,19 @@ export default {
     return {
       timelineItems: [
         {
+          color: 'orange lighten-2',
+          fillDot: true,
+          right: true,
+          title: 'Paw Search',
+          icon: 'mdi-earth',
+          cardTitleClass: 'orange lighten-2',
+          buttonAction: () => this.openInNewTab('https://pawsearch.in/about'),
+          tooltipText: 'Go to Paw Search',
+          mediaComponent: 'v-img',
+          mediaSrc: '../assets/paw-search.gif',
+          description: 'Founder and developer. I aim to simplify the process of finding a pet companion by creating a one-stop platform for pet adoption. https://pawsearch.in/about'
+        },
+        {
           color: 'purple lighten-2',
           fillDot: true,
           right: true,
