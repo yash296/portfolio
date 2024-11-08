@@ -1,7 +1,8 @@
 <template>
   <v-container fluid class="px-5">
     <v-timeline :dense="$vuetify.breakpoint.smAndDown">
-      <v-timeline-item v-for="(item, index) in timelineItems" :key="index" :color="item.color" :fill-dot="item.fillDot" :left="item.left" :right="item.right" :small="item.small">
+      <v-timeline-item v-for="(item, index) in timelineItems" :key="index" :color="item.color" :fill-dot="item.fillDot"
+        :left="item.left" :right="item.right" :small="item.small">
         <v-card tile>
           <v-card-title :class="item.cardTitleClass">
             <v-icon :class="item.iconClass" dark size="42">{{ item.icon }}</v-icon>
@@ -9,7 +10,7 @@
             <div class="flex-grow-1"></div>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn fab icon v-on="on" :style="item.buttonStyle" @click="item.buttonAction">
+                <v-btn fab icon v-on="on" :style="item.buttonStyle" @click="item && item.buttonAction">
                   <v-icon color="#fff">mdi-code-tags</v-icon>
                 </v-btn>
               </template>
@@ -19,7 +20,9 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <component :is="item.mediaComponent" :src="item.mediaSrc" width="100%"></component>
+                <v-img v-if="item.mediaComponent === 'v-img'" :src="item.mediaSrc" width="100%" />
+                <video v-if="item.mediaComponent === 'video'" :src="item.mediaSrc" width="100%"></video>
+                <!-- <component ></component> -->
               </v-col>
               <v-col cols="12">{{ item.description }}</v-col>
             </v-row>
@@ -37,15 +40,15 @@ export default {
       timelineItems: [
         {
           color: 'orange lighten-2',
-          fillDot: true,
-          right: true,
+          fillDot: false,
+          left: true,
           title: 'Paw Search',
           icon: 'mdi-earth',
           cardTitleClass: 'orange lighten-2',
           buttonAction: () => this.openInNewTab('https://pawsearch.in/about'),
           tooltipText: 'Go to Paw Search',
           mediaComponent: 'v-img',
-          mediaSrc: '../assets/paw-search.gif',
+          mediaSrc: require('../assets/paw-search.gif'),
           description: 'Founder and developer. I aim to simplify the process of finding a pet companion by creating a one-stop platform for pet adoption. https://pawsearch.in/about'
         },
         {
@@ -57,8 +60,9 @@ export default {
           cardTitleClass: 'purple lighten-2',
           buttonStyle: 'cursor:not-allowed',
           tooltipText: 'Sorry, the source code is private',
+          buttonAction: () => {},
           mediaComponent: 'v-img',
-          mediaSrc: '../assets/origa-gif.gif',
+          mediaSrc: require('../assets/origa-gif.gif'),
           description: 'A seamless web interface for Origa Labs. Made with Vue, Node, Express and MongoDb.'
         },
         {
@@ -71,8 +75,9 @@ export default {
           cardTitleClass: 'purple lighten-1',
           buttonStyle: 'cursor:not-allowed',
           tooltipText: 'Sorry, the source code is private',
+          buttonAction: () => {},
           mediaComponent: 'v-img',
-          mediaSrc: '../assets/dashboard-gif.gif',
+          mediaSrc: require('../assets/dashboard-gif.gif'),
           description: 'Real time dashboard for a client. Made with Vue.'
         },
         {
@@ -86,7 +91,7 @@ export default {
           tooltipText: 'View source code',
           buttonAction: () => this.openInNewTab('https://github.com/yash296/ar-website'),
           mediaComponent: 'v-img',
-          mediaSrc: '../assets/ar.gif',
+          mediaSrc: require('../assets/ar.gif'),
           description: 'AR website with video calling, image editor and workflow designer! This is used to communicate directly with our AR device. Made with Vue, Node, Express, MongoDb, Socket, Docker.'
         },
         {
@@ -99,8 +104,9 @@ export default {
           cardTitleClass: 'red lighten-1',
           buttonStyle: 'cursor:not-allowed',
           tooltipText: 'Sorry, the source code is private',
+          buttonAction: () => {},
           mediaComponent: 'v-img',
-          mediaSrc: '../assets/qc.gif',
+          mediaSrc: require('../assets/qc.gif'),
           description: 'A quality check and assurance portal developed for a client. Made with Vue, Node, Express and MongoDb.'
         },
         {
@@ -114,7 +120,7 @@ export default {
           tooltipText: 'View source code',
           buttonAction: () => this.openInNewTab('https://github.com/yash296/packing-station'),
           mediaComponent: 'video',
-          mediaSrc: '../assets/packingstation.mp4',
+          mediaSrc: require('../assets/packingstation.mp4'),
           description: 'Intelligent box tracking application with a packing station to store the box barcodes and item values that can be searched directly through the website! Made with Vue, Node, Express, MongoDb, Socket, Docker.'
         },
         {
@@ -127,7 +133,7 @@ export default {
           cardTitleClass: 'amber darken-1',
           buttonAction: () => this.openInNewTab('https://github.com/yash296/project-boost'),
           mediaComponent: 'video',
-          mediaSrc: '../assets/project-boost.mp4',
+          mediaSrc: require('../assets/project-boost.mp4'),
           description: 'A level based game with physics involved. Made with Unity.'
         },
         {
@@ -139,19 +145,19 @@ export default {
           cardTitleClass: 'green lighten-1',
           buttonAction: () => this.openInNewTab('https://github.com/yash296/photographyBlog'),
           mediaComponent: 'v-img',
-          mediaSrc: '../assets/photography-blog.gif',
+          mediaSrc: require('../assets/photography-blog.gif'),
           description: 'A simple photography blog. Made with Vue, Node, Express and MongoDb.'
         },
         {
           color: 'cyan lighten-1',
-          fillDot: true,
+          fillDot: false,
           left: true,
           title: 'Dev-Connector',
           icon: 'mdi-account-switch',
           cardTitleClass: 'cyan lighten-1',
           buttonAction: () => this.openInNewTab('https://github.com/yash296/DevConnector'),
           mediaComponent: 'video',
-          mediaSrc: '../assets/dev-connector.mp4',
+          mediaSrc: require('../assets/dev-connector.mp4'),
           description: 'A portfolio sharing, social web app for developers! Made with React, Node, Express, MongoDb.'
         }
       ]
