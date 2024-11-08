@@ -35,7 +35,7 @@
         </v-row>
       </v-card>
       <v-card flat tile class="pt-4">
-        <v-col cols="12" class="display-1">Frameworks</v-col>
+        <v-col cols="12" class="display-1">Frameworks / Libraries</v-col>
         <v-divider></v-divider>
         <v-row justify="center" align="center">
           <v-col cols="6" md="3" v-for="(image,i) in frameworkImages" :key="i">
@@ -121,7 +121,7 @@ export default {
       },
       {
         logo:
-          "https://icons-for-free.com/iconfiles/png/512/award+badge+html+html5+reward+trophy+icon-1320184828635374270.png",
+          "https://cdn-icons-png.flaticon.com/512/152/152843.png",
         name: "HTML5",
         link: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"
       },
@@ -131,12 +131,6 @@ export default {
         name: "CSS3",
         link: "https://www.w3schools.com/css/"
       },
-      {
-        logo:
-          "https://skillvalue.com/jobs/wp-content/uploads/sites/7/2019/01/csharp_logo.png",
-        name: "C#",
-        link: "https://docs.microsoft.com/en-us/dotnet/csharp/"
-      }
       // {
       //   logo:
       //     "https://png2.cleanpng.com/sh/6c48a7a475fc464a66bfc50dc057311a/L0KzQYm3WMI6N6h5kJH0aYP2gLBuTgB6fJl0hp95cnBqgrL0jflvb15xedDwdXHqdX7qjB1xfaVqip95cnBqgrL0jflvb154Rdc2ZT38hbzzhb10d6N6iAd3YT34icb1TfVscZ1xfeRyLYD4fMT8mr16c146eqoBZEK0RIG8g8I5OF84TqYCN0e1QoK8U8U2PmM3TqI5MkO5PsH1h5==/kisspng-python-programming-language-computer-programming-s-e-e-yukle-sorusuna-uyun-ekilleri-pulsuz-yk-5b86d21405c280.3647772215355622600236.png",
@@ -147,7 +141,7 @@ export default {
     frameworkImages: [
       {
         logo:
-          "https://www.stickpng.com/assets/images/58482acecef1014c0b5e4a1e.png",
+          "https://v2.vuejs.org/images/logo.svg",
         name: "Vue",
         width: "95",
         height: "85",
@@ -156,16 +150,16 @@ export default {
       {
         logo:
           "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
-        name: "React / React Native",
+        name: "React / Next JS",
         width: "95",
         height: "85",
         link: "https://reactjs.org"
       },
       {
-        logo: "https://pacewisdom.com/img/services/express/logo_Express.png",
+        logo: "https://ajeetchaulagain.com/static/7cb4af597964b0911fe71cb2f8148d64/87351/express-js.png",
         name: "Express",
-        width: "",
-        height: "",
+        width: "95",
+        height: "85",
         link: "https://expressjs.com"
       }
       // {
@@ -232,22 +226,6 @@ export default {
       //   height: "95",
       //   link: "https://www.docker.com"
       // },
-      {
-        logo:
-          "https://lever-client-logos.s3.amazonaws.com/aea3a05c-2bc1-4112-a066-a003dc78b95c-1523996663450.png",
-        name: "Figma",
-        width: "95",
-        height: "95",
-        link: "https://www.figma.com"
-      },
-      {
-        logo:
-          "https://www.stickpng.com/assets/images/58482b92cef1014c0b5e4a2d.png",
-        name: "Unity",
-        width: "95",
-        height: "95",
-        link: "https://unity.com"
-      },
       // {
       //   logo:
       //     "https://cdn.freebiesupply.com/logos/large/2x/visual-studio-code-logo-png-transparent.png",
@@ -256,14 +234,6 @@ export default {
       //   height: "95",
       //   link: "https://visualstudio.microsoft.com"
       // },
-      {
-        logo:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/1050px-Adobe_XD_CC_icon.svg.png",
-        name: "Adobe XD",
-        width: "95",
-        height: "95",
-        link: "https://www.adobe.com/in/products/xd.html"
-      }
     ]
   })
 };

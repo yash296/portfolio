@@ -10,7 +10,7 @@
             <div class="flex-grow-1"></div>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-btn fab icon v-on="on" :style="item.buttonStyle" @click="item && item.buttonAction">
+                <v-btn fab icon v-on="on" :style="item.buttonStyle" @click="item.buttonAction">
                   <v-icon color="#fff">mdi-code-tags</v-icon>
                 </v-btn>
               </template>
@@ -49,7 +49,7 @@ export default {
           tooltipText: 'Go to Paw Search',
           mediaComponent: 'v-img',
           mediaSrc: require('../assets/paw-search.gif'),
-          description: 'Founder and developer. I aim to simplify the process of finding a pet companion by creating a one-stop platform for pet adoption. https://pawsearch.in/about'
+          description: 'Founder and developer. I aim to simplify the process of finding a pet companion by creating a one-stop platform for pet adoption. Made with Next (React), Postgres and Google Cloud Platform. https://pawsearch.in/about'
         },
         {
           color: 'purple lighten-2',
