@@ -113,10 +113,10 @@ export default {
           title: "Wordsmith",
           description:
             "An AI-powered writing assistant designed to help you write better, faster, and more clearly. Distraction-free and built for people who take their words seriously.",
-          category: "Live Product",
+          category: "Startup",
           accent: "#6366f1",
-          mediaType: "gradient",
-          mediaSrc: null,
+          mediaType: "image",
+          mediaSrc: require("../assets/wordsmith.png"),
           tags: ["Next.js", "AI", "TypeScript"],
           link: "https://www.wordsmith.page",
           linkLabel: "Visit Wordsmith"
@@ -125,13 +125,25 @@ export default {
           title: "Paw Search",
           description:
             "Founder and developer. A one-stop platform simplifying pet adoption across India — connecting adopters with shelters and breeders in their city.",
-          category: "Startup",
+          category: "Non-profit",
           accent: "#f59e0b",
           mediaType: "image",
           mediaSrc: require("../assets/paw-search.gif"),
           tags: ["Next.js", "React", "PostgreSQL", "GCP"],
           link: "https://pawsearch.in/about",
           linkLabel: "Visit Paw Search"
+        },
+        {
+          title: "Lazy Sloth",
+          description:
+            "A direct-to-consumer e-commerce storefront for a loungewear brand — \"high-performance loungewear for low-performance days.\" Custom catalog, cart, and checkout flow.",
+          category: "Client Work",
+          accent: "#ec4899",
+          mediaType: "image",
+          mediaSrc: require("../assets/lazysloth.png"),
+          tags: ["Next.js", "React", "E-commerce"],
+          link: "https://www.lazysloth.in/",
+          linkLabel: "Visit Lazy Sloth"
         },
         {
           title: "Origa Labs",
