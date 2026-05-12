@@ -41,11 +41,11 @@ export default {
 
   /* Wordsmith palette — light (Paper) */
   --ink: #0B0F17;
-  --text: #0D1320;
+  --text: #000000;
   --text-muted: #4A5468;
   --text-soft: #6B7385;
   --paper: #FFFFFF;
-  --paper-warm: #fdfdfc;
+  --paper-warm: #FAFAFB;
   --rule: rgba(13, 19, 32, 0.10);
   --rule-soft: rgba(13, 19, 32, 0.06);
   --strike: #9AA0AC;

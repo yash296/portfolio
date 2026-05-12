@@ -287,13 +287,10 @@ export default {
 }
 
 .dispatch-item {
-  border-bottom: 1px solid var(--rule-soft);
+
   padding: 0;
 }
 
-.dispatch-item:first-child {
-  border-top: 1px solid var(--rule-soft);
-}
 
 .dispatch-link {
   display: flex;
