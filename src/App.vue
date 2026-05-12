@@ -45,7 +45,7 @@ export default {
   --text-muted: #4A5468;
   --text-soft: #6B7385;
   --paper: #FFFFFF;
-  --paper-warm: #F5EFE6;
+  --paper-warm: #fdfdfc;
   --rule: rgba(13, 19, 32, 0.10);
   --rule-soft: rgba(13, 19, 32, 0.06);
   --strike: #9AA0AC;
