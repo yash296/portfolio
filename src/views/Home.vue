@@ -71,7 +71,7 @@
                 />
               </div>
               <figcaption class="portrait-caption font-mono">
-                FIG. 01 &mdash; The author, photographed in Bangalore.
+                FIG. 01 &mdash; The author, photographed in Malibu, CA.
               </figcaption>
             </figure>
           </v-col>
