@@ -3,22 +3,38 @@
     <!-- Hero -->
     <section class="hero">
       <v-container class="hero-container">
-        <v-row align="center" class="hero-row">
-          <!-- Left: Text -->
-          <v-col cols="12" md="7" class="hero-text">
-            <p class="hero-greeting font-accent">Hi there, I'm</p>
+        <!-- Editorial masthead -->
+        <div class="masthead">
+          <span class="masthead-tag font-mono">PORTFOLIO &middot; V3.0 &middot; 2026</span>
+          <span class="masthead-rule"></span>
+          <span class="masthead-tag font-mono">BANGALORE</span>
+        </div>
 
-            <h1 class="hero-name font-heading">
-              <span class="name-highlight">Yash</span> Wanvari
+        <v-row align="center" class="hero-row">
+          <!-- Left: editorial type + writing animation -->
+          <v-col cols="12" md="7" class="hero-text">
+            <p class="editorial-eyebrow hero-greeting">FROM THE DESK OF &mdash;</p>
+
+            <h1 class="hero-name font-display">
+              Yash Wanvari<span class="period">.</span>
             </h1>
 
-            <h2 class="hero-role font-heading">Senior Full-Stack Developer</h2>
-
-            <p class="hero-bio">
-              I build scalable systems and craft experiences users love. Currently
-              making pet adoption easier across India with
-              <a href="https://pawsearch.in/about" target="_blank" class="hero-link">Paw Search</a>.
+            <p class="hero-role font-mono">
+              SENIOR FULL-STACK DEVELOPER &middot; SHIPPING SINCE 2019
             </p>
+
+            <p class="hero-bio font-serif">
+              I build scalable systems and craft experiences users love.
+              Currently making pet adoption easier across India with
+              <a href="https://pawsearch.in/about" target="_blank" class="hero-link">Paw&nbsp;Search</a>,
+              and editing prose paragraph-by-paragraph at
+              <a href="https://www.wordsmith.page" target="_blank" class="hero-link">Wordsmith</a>.
+            </p>
+
+            <!-- The signature suggestion-pattern animation -->
+            <div class="hero-animation">
+              <WritingAnimation />
+            </div>
 
             <div class="hero-actions">
               <v-btn
@@ -27,6 +43,7 @@
                 to="/portfolio"
                 class="hero-btn-primary"
                 elevation="0"
+                :dark="!isDark"
               >
                 View My Work
                 <v-icon right small>mdi-arrow-right</v-icon>
@@ -34,41 +51,43 @@
               <v-btn
                 large
                 outlined
-                color="primary"
-                href="mailto:wanvari.yash@gmail.com"
-                class="hero-btn-secondary ml-3"
+                to="/skills"
+                class="hero-btn-secondary ml-2"
                 elevation="0"
               >
-                Get In Touch
+                Skills &amp; Tools
               </v-btn>
             </div>
           </v-col>
 
-          <!-- Right: Avatar (desktop only) -->
+          <!-- Right: portrait, editorial frame -->
           <v-col cols="12" md="5" class="d-none d-md-flex justify-center align-center">
-            <div class="hero-avatar-wrap">
-              <div class="hero-avatar-glow"></div>
-              <img
-                src="../assets/profile.jpg"
-                alt="Yash Wanvari"
-                class="hero-avatar-img"
-              />
-            </div>
+            <figure class="portrait-figure">
+              <div class="portrait-frame">
+                <img
+                  src="../assets/profile.png"
+                  alt="Yash Wanvari"
+                  class="portrait-img"
+                />
+              </div>
+              <figcaption class="portrait-caption font-mono">
+                FIG. 01 &mdash; The author, photographed in Bangalore.
+              </figcaption>
+            </figure>
           </v-col>
         </v-row>
 
-        <!-- Stats bar -->
-        <v-row class="stats-row" no-gutters ref="statsRow">
-          <v-col
+        <!-- Stats bar — editorial ledger -->
+        <div class="stats-row" ref="statsRow">
+          <div
             v-for="(stat, i) in stats"
             :key="stat.label"
-            cols="4"
             class="stat-item"
           >
-            <div class="stat-number font-heading">{{ statDisplays[i] }}</div>
-            <div class="stat-label">{{ stat.label }}</div>
-          </v-col>
-        </v-row>
+            <div class="stat-number font-display">{{ statDisplays[i] }}</div>
+            <div class="stat-label font-mono">{{ stat.label }}</div>
+          </div>
+        </div>
       </v-container>
     </section>
 
@@ -81,14 +100,15 @@
 
 <script>
 import About from "../components/About";
+import WritingAnimation from "../components/WritingAnimation";
 export default {
   name: "home",
-  components: { About },
+  components: { About, WritingAnimation },
   data: () => ({
     stats: [
-      { target: 6, suffix: "+", label: "Years Experience" },
-      { target: 10, suffix: "+", label: "Projects Shipped" },
-      { target: 1, suffix: "", label: "Startup Founded" }
+      { target: 6, suffix: "+", label: "YEARS · PROFESSIONAL" },
+      { target: 10, suffix: "+", label: "PROJECTS · SHIPPED" },
+      { target: 1, suffix: "", label: "STARTUP · FOUNDED" }
     ],
     statDisplays: ["0", "0", "0"]
   }),
@@ -108,7 +128,7 @@ export default {
   methods: {
     _animateCounters() {
       this.stats.forEach((stat, i) => {
-        const duration = 1000;
+        const duration = 1100;
         const start = performance.now();
         const tick = (now) => {
           const progress = Math.min((now - start) / duration, 1);
@@ -130,204 +150,251 @@ export default {
 }
 
 .home-light {
-  background: linear-gradient(160deg, #fafafa 0%, #f0f0ff 55%, #eef0ff 100%);
+  background: var(--paper);
 }
 
 .home-dark {
-  background: linear-gradient(160deg, #0f0f14 0%, #10101e 55%, #0d0f1e 100%);
+  background: var(--paper);
 }
 
 /* Hero */
 .hero {
   min-height: 90vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 8px;
 }
 
 .hero-container {
-  padding-top: 80px;
+  padding-top: 56px;
   padding-bottom: 48px;
 }
 
 .hero-row {
-  min-height: 65vh;
+  min-height: 60vh;
+}
+
+/* Masthead */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  animation: fadeUp 0.5s ease both;
+}
+
+.masthead-tag {
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.masthead-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
 }
 
 .hero-text {
-  padding: 32px 0;
+  padding: 8px 0;
 }
 
-/* Text */
+/* Headlines */
 .hero-greeting {
-  font-family: 'Caveat', cursive !important;
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #6366f1;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 12px;
   animation: fadeUp 0.5s ease both;
 }
 
 .hero-name {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin-bottom: 14px;
   animation: fadeUp 0.55s 0.08s ease both;
 }
 
-.name-highlight {
-  color: #6366f1;
+.period {
+  color: var(--suggest-fg);
 }
 
 .hero-role {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  font-weight: 400;
-  opacity: 0.55;
-  letter-spacing: -0.01em;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-mono) !important;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  margin-bottom: 22px;
   animation: fadeUp 0.55s 0.15s ease both;
 }
 
 .hero-bio {
-  font-size: 1rem;
-  line-height: 1.75;
-  opacity: 0.72;
-  max-width: 480px;
-  margin-bottom: 2.5rem;
+  font-family: var(--font-serif) !important;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 540px;
+  margin-bottom: 32px;
   animation: fadeUp 0.6s 0.22s ease both;
+  letter-spacing: -0.005em;
 }
 
 .hero-link {
-  color: #6366f1;
+  color: var(--text);
   text-decoration: none;
-  border-bottom: 1px dashed #6366f1;
-  transition: border-bottom-style 0.15s;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 95%;
+  transition: background-position 0.25s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .hero-link:hover {
-  border-bottom-style: solid;
+  color: var(--suggest-fg);
+}
+
+.hero-animation {
+  margin-bottom: 36px;
+  animation: fadeUp 0.65s 0.32s ease both;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  animation: fadeUp 0.6s 0.3s ease both;
-}
-
-.hero-btn-primary {
-  border-radius: 10px !important;
-  text-transform: none !important;
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em !important;
-  font-size: 0.95rem !important;
-}
-
-.hero-btn-secondary {
-  border-radius: 10px !important;
-  text-transform: none !important;
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-weight: 500 !important;
-  letter-spacing: -0.01em !important;
-  font-size: 0.95rem !important;
-}
-
-/* Avatar */
-.hero-avatar-wrap {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  animation: fadeIn 0.8s 0.2s ease both, float 7s 1.2s ease-in-out infinite;
-}
-
-.hero-avatar-glow {
-  position: absolute;
-  inset: -16px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(79, 70, 229, 0.12) 70%, transparent 100%);
-  filter: blur(20px);
-}
-
-.hero-avatar-img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
-  z-index: 1;
-  border: 3px solid rgba(99, 102, 241, 0.3);
-}
-
-/* Stats */
-.stats-row {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(128, 128, 128, 0.12);
+  gap: 10px;
   animation: fadeUp 0.6s 0.4s ease both;
 }
 
-.stat-item {
+.hero-btn-primary {
+  border-radius: 4px !important;
+  text-transform: none !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  font-size: 0.92rem !important;
+  height: 46px !important;
+  padding: 0 22px !important;
+}
+
+.hero-btn-secondary {
+  border-radius: 4px !important;
+  text-transform: none !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  font-size: 0.92rem !important;
+  height: 46px !important;
+  padding: 0 20px !important;
+  border-color: var(--rule) !important;
+  color: var(--text) !important;
+}
+
+/* Portrait */
+.portrait-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  animation: fadeIn 0.8s 0.2s ease both;
+}
+
+.portrait-frame {
+  position: relative;
+  width: 280px;
+  height: 340px;
+  padding: 14px 14px 18px;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 0 var(--rule);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.18) contrast(1.02);
+  transition: filter 0.4s ease;
+}
+
+.portrait-frame:hover .portrait-img {
+  filter: grayscale(0) contrast(1);
+}
+
+.portrait-caption {
+  margin-top: 12px;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
   text-align: center;
-  padding: 8px 0;
+  max-width: 280px;
+  font-style: normal;
+}
+
+/* Stats — editorial ledger */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  animation: fadeUp 0.6s 0.48s ease both;
+}
+
+.stat-item {
+  padding: 8px 22px;
+  border-right: 1px solid var(--rule-soft);
+}
+
+.stat-item:last-child {
+  border-right: none;
 }
 
 .stat-number {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #6366f1;
+  font-family: var(--font-serif) !important;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--text);
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .stat-label {
-  font-size: 0.72rem;
+  font-family: var(--font-mono) !important;
+  font-size: 0.64rem;
   font-weight: 500;
-  opacity: 0.48;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.16em;
+  color: var(--text-soft);
 }
 
 /* Animations */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-14px); }
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-avatar-wrap,
+  .masthead,
   .hero-greeting,
   .hero-name,
   .hero-role,
   .hero-bio,
+  .hero-animation,
   .hero-actions,
+  .portrait-figure,
   .stats-row {
     animation: none;
     opacity: 1;
@@ -339,27 +406,78 @@ export default {
 @media (max-width: 960px) {
   .hero {
     min-height: auto;
-    padding: 20px 0 40px;
+    padding: 8px 0 32px;
   }
   .hero-container {
-    padding-top: 40px;
+    padding-top: 32px;
   }
   .hero-row {
     min-height: auto;
   }
+  .masthead {
+    margin-bottom: 28px;
+  }
   .hero-text {
-    text-align: center;
-    padding: 16px 0;
-  }
-  .hero-bio {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-actions {
-    justify-content: center;
+    padding: 8px 0;
   }
   .stats-row {
-    margin-top: 2rem;
+    margin-top: 40px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 14px 0;
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-container {
+    padding-top: 24px;
+  }
+  .masthead {
+    gap: 10px;
+    margin-bottom: 22px;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+  }
+  .hero-name {
+    font-size: clamp(2.6rem, 11vw, 3.4rem);
+    line-height: 1.02;
+  }
+  .hero-role {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+  .hero-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .hero-animation {
+    margin-bottom: 28px;
+  }
+  .hero-actions {
+    width: 100%;
+  }
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    flex: 1;
+    min-width: 0;
+    padding: 0 14px !important;
+    font-size: 0.86rem !important;
+  }
+  .hero-actions .ml-2 {
+    margin-left: 0 !important;
+  }
+  .stat-item {
+    padding: 14px 4px;
+  }
+  .stat-number {
+    font-size: 2.2rem;
   }
 }
 </style>

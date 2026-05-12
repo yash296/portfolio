@@ -1,85 +1,93 @@
 <template>
   <div class="about-section">
     <!-- Section eyebrow -->
-    <p class="about-eyebrow font-accent reveal" data-delay="0">a little about me</p>
-    <h2 class="about-title font-heading reveal" data-delay="80">The person behind the code</h2>
+    <div class="section-mast">
+      <span class="editorial-eyebrow reveal" data-delay="0">CHAPTER 02 &middot; ABOUT</span>
+      <hr class="editorial-rule reveal" data-delay="20" />
+    </div>
+
+    <h2 class="about-title font-display reveal" data-delay="80">
+      The author, in his own words<span class="period">.</span>
+    </h2>
 
     <v-row class="mt-8">
       <!-- Bio text -->
       <v-col cols="12" md="7">
         <div class="about-text reveal" data-delay="140">
+          <p class="lede">
+            I'm a <em>senior full-stack developer</em> with six years
+            of experience building web applications &mdash; from rough MVPs
+            to production systems serving thousands of users.
+          </p>
           <p>
-            I'm a <strong>Senior Full-Stack Developer</strong> with over 6 years of experience building
-            web applications — from rough MVPs to production systems serving thousands of users.
-            I specialize in the full stack: designing databases, building APIs, and crafting interfaces
-            that feel intuitive and fast.
+            I specialize in the full stack: designing databases, building APIs,
+            and crafting interfaces that feel intuitive and fast. I care about
+            more than making things work &mdash; I care about making them
+            <em>right</em>. Clean architecture, thoughtful UX, and code the next
+            developer will actually enjoy reading.
           </p>
-          <p class="mt-5">
-            I care about more than just making things work. I care about making them <em>right</em> —
-            clean architecture, thoughtful UX, and code the next developer will actually enjoy reading.
-            I've led engineering teams, mentored juniors, and built products from zero to production.
-          </p>
-          <p class="mt-5">
-            When I'm not shipping code, you'll find me photographing Bangalore's chaotic beauty,
+          <p>
+            I've led engineering teams, mentored juniors, and built products
+            from zero to production. When I'm not shipping code, I'm on a
+            football pitch, chasing a trail somewhere outside Bangalore,
             gaming way past midnight, or working on
-            <a href="https://pawsearch.in/about" target="_blank" class="inline-link">Paw Search</a> —
-            my attempt to make pet adoption easier in India.
+            <a href="https://pawsearch.in/about" target="_blank" class="inline-link">Paw Search</a>
+            &mdash; my attempt to make pet adoption easier in India.
           </p>
         </div>
       </v-col>
 
-      <!-- Quick facts sidebar -->
+      <!-- Quick facts sidebar — colophon -->
       <v-col cols="12" md="5">
-        <div class="quick-facts reveal" data-delay="200" :class="isDark ? 'quick-facts-dark' : 'quick-facts-light'">
-          <p class="quick-facts-title font-accent">Quick facts</p>
-          <div v-for="fact in facts" :key="fact.label" class="fact-row">
-            <v-icon small color="primary" class="mr-2 fact-icon">{{ fact.icon }}</v-icon>
-            <span class="fact-label">{{ fact.label }}:</span>
-            <span class="ml-1 fact-value">{{ fact.value }}</span>
-          </div>
-        </div>
+        <aside class="colophon reveal" data-delay="200">
+          <p class="colophon-title font-mono">COLOPHON</p>
+          <dl class="colophon-list">
+            <template v-for="fact in facts">
+              <dt :key="fact.label + '-dt'" class="font-mono">{{ fact.label }}</dt>
+              <dd :key="fact.label + '-dd'">{{ fact.value }}</dd>
+            </template>
+          </dl>
+        </aside>
       </v-col>
     </v-row>
 
-    <!-- Currently building indicators -->
-    <v-row class="mt-6">
-      <v-col cols="12">
-        <div class="currently-wrapper reveal" data-delay="100">
-          <div
-            v-for="project in currentProjects"
-            :key="project.name"
-            class="currently-block"
-            :class="isDark ? 'currently-dark' : 'currently-light'"
-          >
-            <span class="currently-dot"></span>
-            <span class="currently-label font-heading">Currently building:</span>
-            <a :href="project.url" target="_blank" class="currently-project">
-              {{ project.name }} &mdash; {{ project.desc }}
-            </a>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
+    <!-- Currently building — editorial dispatch -->
+    <div class="dispatch-wrap reveal" data-delay="100">
+      <p class="editorial-eyebrow dispatch-eyebrow">
+        <span class="signal-dot" />
+        IN PROGRESS &middot; DISPATCHED FROM THE DESK
+      </p>
+      <ul class="dispatch-list">
+        <li
+          v-for="project in currentProjects"
+          :key="project.name"
+          class="dispatch-item"
+        >
+          <a :href="project.url" target="_blank" class="dispatch-link">
+            <span class="dispatch-name font-display">{{ project.name }}</span>
+            <span class="dispatch-rule"></span>
+            <span class="dispatch-desc">{{ project.desc }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-    <!-- Bangalore card -->
-    <v-row class="mt-8">
-      <v-col cols="12" class="reveal" data-delay="60">
-        <v-card class="bangalore-card" rounded="lg" elevation="0">
-          <v-img
-            :src="isDark ? require('../assets/bangaloreDark.png') : require('../assets/bangaloreLight.png')"
-            height="240"
-          >
-            <v-row align="end" justify="start" class="fill-height pa-6">
-              <div class="bangalore-text">
-                <p class="bangalore-eyebrow font-accent">Originally from</p>
-                <p class="bangalore-city font-heading">Bangalore, India</p>
-                <p class="bangalore-sub">B.E. Information Science &middot; CMR Institute of Technology</p>
-              </div>
-            </v-row>
-          </v-img>
-        </v-card>
-      </v-col>
-    </v-row>
+    <!-- Bangalore card — editorial postcard -->
+    <div class="postcard reveal" data-delay="60">
+      <div class="postcard-image">
+        <img
+          :src="isDark ? require('../assets/bangaloreDark.png') : require('../assets/bangaloreLight.png')"
+          alt="Bangalore"
+        />
+      </div>
+      <div class="postcard-meta">
+        <p class="editorial-eyebrow">DISPATCH &middot; ORIGIN</p>
+        <p class="postcard-city font-display">Bangalore, India<span class="period">.</span></p>
+        <p class="postcard-sub font-serif">
+          B.E. Information Science &middot; CMR Institute of Technology
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -87,20 +95,20 @@
 export default {
   data: () => ({
     facts: [
-      { icon: 'mdi-map-marker', label: 'Based in', value: 'Bangalore, India' },
-      { icon: 'mdi-briefcase-outline', label: 'Role', value: 'Senior Full-Stack Dev' },
-      { icon: 'mdi-code-braces', label: 'Focus', value: 'Vue · React · Node.js' },
-      { icon: 'mdi-rocket-launch-outline', label: 'Building', value: 'Wordsmith · Paw Search' },
-      { icon: 'mdi-camera-outline', label: 'Hobbies', value: 'Photography · Gaming' }
+      { label: "BASED IN", value: "Bangalore, India" },
+      { label: "ROLE", value: "Senior Full-Stack Developer" },
+      { label: "STACK", value: "Vue · React · Node.js" },
+      { label: "BUILDING", value: "Wordsmith · Paw Search" },
+      { label: "OFF HOURS", value: "Football · Trails · Gaming" }
     ],
     currentProjects: [
-      { name: 'Wordsmith', desc: 'AI writing assistant', url: 'https://www.wordsmith.page' },
-      { name: 'Paw Search', desc: 'pet adoption platform for India', url: 'https://pawsearch.in/about' }
+      { name: "Wordsmith", desc: "AI editor that proofreads, never silently", url: "https://www.wordsmith.page" },
+      { name: "Paw Search", desc: "pet adoption platform for India", url: "https://pawsearch.in/about" }
     ]
   }),
   computed: {
     isDark() {
-      return this.$store.getters.getColor === 'dark';
+      return this.$store.getters.getColor === "dark";
     }
   },
   mounted() {
@@ -111,20 +119,20 @@ export default {
   },
   methods: {
     _setupReveal() {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        this.$el.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        this.$el.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
         return;
       }
       this._observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const delay = parseInt(entry.target.dataset.delay || 0);
-            setTimeout(() => entry.target.classList.add('is-visible'), delay);
+            setTimeout(() => entry.target.classList.add("is-visible"), delay);
             this._observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-      this.$el.querySelectorAll('.reveal').forEach(el => this._observer.observe(el));
+      }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+      this.$el.querySelectorAll(".reveal").forEach(el => this._observer.observe(el));
     }
   }
 };
@@ -133,182 +141,296 @@ export default {
 <style scoped>
 .about-section {
   padding: 4rem 0 3rem;
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
-.about-eyebrow {
-  font-family: 'Caveat', cursive !important;
-  font-size: 1.4rem;
-  color: #6366f1;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+.section-mast {
+  margin-bottom: 12px;
+}
+
+.section-mast .editorial-rule {
+  margin-top: 8px;
 }
 
 .about-title {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  margin-bottom: 0;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+  color: var(--text);
+  margin: 0;
 }
 
+.period {
+  color: var(--suggest-fg);
+}
+
+/* Body text — editorial */
 .about-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.97rem;
-  line-height: 1.8;
+  font-family: var(--font-serif);
+  font-size: 1.06rem;
+  line-height: 1.78;
+  color: var(--text);
+  letter-spacing: -0.003em;
 }
 
 .about-text p {
-  margin-bottom: 0;
-}
-
-.inline-link {
-  color: #6366f1;
-  text-decoration: none;
-  border-bottom: 1px dashed #6366f1;
-  transition: border-bottom-style 0.15s;
-}
-
-.inline-link:hover {
-  border-bottom-style: solid;
-}
-
-/* Quick facts */
-.quick-facts {
-  border-radius: 14px;
-  padding: 1.5rem;
-  height: 100%;
-}
-
-.quick-facts-light {
-  background: rgba(99, 102, 241, 0.04);
-  border: 1px solid rgba(99, 102, 241, 0.14);
-}
-
-.quick-facts-dark {
-  background: rgba(129, 140, 248, 0.06);
-  border: 1px solid rgba(129, 140, 248, 0.18);
-}
-
-.quick-facts-title {
-  font-family: 'Caveat', cursive !important;
-  font-size: 1.1rem;
-  color: #6366f1;
   margin-bottom: 1rem;
 }
 
-.fact-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 11px;
-  font-size: 0.85rem;
+.about-text p:last-child {
+  margin-bottom: 0;
 }
 
-.fact-icon {
-  flex-shrink: 0;
+.lede::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.86;
+  padding-right: 8px;
+  padding-top: 4px;
+  font-weight: 500;
+  color: var(--text);
 }
 
-.fact-label {
-  font-weight: 600;
-  opacity: 0.65;
-  white-space: nowrap;
+.inline-link {
+  color: var(--text);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 95%;
+  transition: color 0.2s ease;
 }
 
-.fact-value {
-  opacity: 0.88;
+.inline-link:hover {
+  color: var(--suggest-fg);
 }
 
-/* Currently building */
-.currently-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* Colophon */
+.colophon {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  padding: 1.4rem 1.4rem 1.2rem;
+  border-radius: 4px;
+  height: 100%;
 }
 
-.currently-block {
+.colophon-title {
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 14px;
+}
+
+.colophon-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(80px, auto) 1fr;
+  column-gap: 14px;
+  row-gap: 9px;
+  font-size: 0.86rem;
+}
+
+.colophon-list dt {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  align-self: baseline;
+  padding-top: 3px;
+}
+
+.colophon-list dd {
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--text);
+  font-size: 0.96rem;
+  line-height: 1.4;
+}
+
+/* Dispatch */
+.dispatch-wrap {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.dispatch-eyebrow {
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 100px;
-  font-size: 0.85rem;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
-.currently-light {
-  background: rgba(34, 197, 94, 0.07);
-  border: 1px solid rgba(34, 197, 94, 0.2);
-}
-
-.currently-dark {
-  background: rgba(74, 222, 128, 0.08);
-  border: 1px solid rgba(74, 222, 128, 0.22);
-}
-
-.currently-dot {
-  width: 8px;
-  height: 8px;
+.signal-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #22c55e;
-  flex-shrink: 0;
-  animation: pulse-dot 2.5s ease-in-out infinite;
+  background: var(--suggest-fg);
+  animation: signal-pulse 2.4s ease-in-out infinite;
 }
 
-@keyframes pulse-dot {
+@keyframes signal-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
 
-.currently-label {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-weight: 600;
-  font-size: 0.85rem;
+.dispatch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.currently-project {
-  color: #22c55e;
+.dispatch-item {
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 0;
+}
+
+.dispatch-item:first-child {
+  border-top: 1px solid var(--rule-soft);
+}
+
+.dispatch-link {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 0;
   text-decoration: none;
-  font-size: 0.85rem;
+  color: var(--text);
+  transition: color 0.2s ease;
 }
 
-.currently-project:hover {
-  text-decoration: underline;
+.dispatch-link:hover {
+  color: var(--suggest-fg);
 }
 
-/* Bangalore card */
-.bangalore-card {
-  overflow: hidden;
-  border-radius: 16px !important;
-}
-
-.bangalore-text {
-  background: rgba(0, 0, 0, 0.52);
-  backdrop-filter: blur(6px);
-  border-radius: 10px;
-  padding: 14px 18px;
-}
-
-.bangalore-eyebrow {
-  font-family: 'Caveat', cursive !important;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 2px;
-}
-
-.bangalore-city {
-  font-family: 'Space Grotesk', sans-serif !important;
+.dispatch-name {
+  font-family: var(--font-serif) !important;
   font-size: 1.4rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 4px;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  white-space: nowrap;
 }
 
-.bangalore-sub {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0;
+.dispatch-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  align-self: center;
+  min-width: 12px;
+}
+
+.dispatch-desc {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: right;
+}
+
+/* Postcard */
+.postcard {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) 1fr;
+  gap: 24px;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.postcard-image {
+  position: relative;
+  min-height: 220px;
+}
+
+.postcard-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.2) contrast(1.02);
+}
+
+.postcard-meta {
+  padding: 22px 26px 22px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.postcard-city {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 6px 0 8px;
+}
+
+.postcard-sub {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .postcard {
+    grid-template-columns: 1fr;
+  }
+  .postcard-meta {
+    padding: 18px 20px 22px;
+  }
+  .dispatch-link {
+    flex-wrap: wrap;
+    gap: 4px 14px;
+  }
+  .dispatch-desc {
+    text-align: left;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 2.5rem 0 2rem;
+  }
+  .about-title {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+  }
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .lede::first-letter {
+    font-size: 2.8em;
+    padding-right: 6px;
+    padding-top: 3px;
+  }
+  .colophon {
+    padding: 1.1rem 1.2rem;
+  }
+  .colophon-list {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+  .colophon-list dt {
+    padding-top: 6px;
+  }
+  .colophon-list dd {
+    font-size: 0.95rem;
+  }
+  .dispatch-name {
+    font-size: 1.2rem;
+  }
 }
 </style>

@@ -1,11 +1,19 @@
 <template>
   <div class="skills-page">
-    <!-- Section header -->
+    <!-- Section masthead -->
     <div class="section-header">
       <v-container>
-        <p class="section-eyebrow font-accent reveal" data-delay="0">tools of the trade</p>
-        <h1 class="section-title font-heading reveal" data-delay="80">Skills</h1>
-        <p class="section-desc reveal" data-delay="150">Technologies I've worked with professionally and shipped to production.</p>
+        <div class="mast-row">
+          <span class="editorial-eyebrow reveal" data-delay="0">CHAPTER 04 &middot; APPENDIX</span>
+          <hr class="editorial-rule reveal" data-delay="30" />
+        </div>
+        <h1 class="section-title font-display reveal" data-delay="80">
+          Tools of the trade<span class="period">.</span>
+        </h1>
+        <p class="section-desc font-serif reveal" data-delay="150">
+          Technologies I've worked with professionally and shipped to production.
+          Not every line I've ever written &mdash; just the things I reach for first.
+        </p>
       </v-container>
     </div>
 
@@ -14,12 +22,12 @@
         v-for="(category, ci) in skillCategories"
         :key="category.name"
         class="skill-category"
-        :class="ci < skillCategories.length - 1 ? 'mb-12' : ''"
       >
         <!-- Category heading -->
-        <div class="category-header mb-6 reveal" data-delay="0">
-          <v-icon color="primary" class="mr-2">{{ category.icon }}</v-icon>
-          <h2 class="category-title font-heading">{{ category.name }}</h2>
+        <div class="category-header reveal" data-delay="0">
+          <span class="category-num font-mono">§ {{ String(ci + 1).padStart(2, '0') }}</span>
+          <h2 class="category-title font-display">{{ category.name }}</h2>
+          <span class="category-rule"></span>
         </div>
 
         <v-row>
@@ -31,7 +39,7 @@
             md="3"
             lg="2"
             class="reveal"
-            :data-delay="si * 60"
+            :data-delay="si * 50"
           >
             <div
               class="skill-card"
@@ -45,16 +53,10 @@
                 class="skill-icon"
                 @error="e => (e.target.style.opacity = '0.3')"
               />
-              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-name font-mono">{{ skill.name }}</span>
             </div>
           </v-col>
         </v-row>
-
-        <v-divider
-          v-if="ci < skillCategories.length - 1"
-          class="mt-10"
-          :style="isDark ? 'opacity: 0.07' : 'opacity: 0.1'"
-        />
       </div>
     </v-container>
   </div>
@@ -69,116 +71,40 @@ export default {
     skillCategories: [
       {
         name: "Languages",
-        icon: "mdi-code-braces",
         skills: [
-          {
-            name: "JavaScript",
-            icon: di("javascript"),
-            link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          },
-          {
-            name: "TypeScript",
-            icon: di("typescript"),
-            link: "https://www.typescriptlang.org"
-          },
-          {
-            name: "HTML5",
-            icon: di("html5"),
-            link: "https://developer.mozilla.org/en-US/docs/Web/HTML"
-          },
-          {
-            name: "CSS3",
-            icon: di("css3"),
-            link: "https://developer.mozilla.org/en-US/docs/Web/CSS"
-          },
-          {
-            name: "C#",
-            icon: di("csharp"),
-            link: "https://docs.microsoft.com/en-us/dotnet/csharp/"
-          }
+          { name: "JavaScript", icon: di("javascript"), link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+          { name: "TypeScript", icon: di("typescript"), link: "https://www.typescriptlang.org" },
+          { name: "HTML5", icon: di("html5"), link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+          { name: "CSS3", icon: di("css3"), link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+          { name: "C#", icon: di("csharp"), link: "https://docs.microsoft.com/en-us/dotnet/csharp/" }
         ]
       },
       {
         name: "Frameworks & Libraries",
-        icon: "mdi-layers-outline",
         skills: [
-          {
-            name: "Vue.js",
-            icon: di("vuejs"),
-            link: "https://vuejs.org"
-          },
-          {
-            name: "React",
-            icon: di("react"),
-            link: "https://reactjs.org"
-          },
-          {
-            name: "Next.js",
-            icon: di("nextjs", "original-wordmark"),
-            link: "https://nextjs.org"
-          },
-          {
-            name: "Node.js",
-            icon: di("nodejs"),
-            link: "https://nodejs.org"
-          },
-          {
-            name: "Express",
-            icon: di("express", "original-wordmark"),
-            link: "https://expressjs.com"
-          }
+          { name: "Vue.js", icon: di("vuejs"), link: "https://vuejs.org" },
+          { name: "React", icon: di("react"), link: "https://reactjs.org" },
+          { name: "Next.js", icon: di("nextjs", "original-wordmark"), link: "https://nextjs.org" },
+          { name: "Node.js", icon: di("nodejs"), link: "https://nodejs.org" },
+          { name: "Express", icon: di("express", "original-wordmark"), link: "https://expressjs.com" }
         ]
       },
       {
         name: "Databases & Cloud",
-        icon: "mdi-database-outline",
         skills: [
-          {
-            name: "MongoDB",
-            icon: di("mongodb"),
-            link: "https://www.mongodb.com"
-          },
-          {
-            name: "PostgreSQL",
-            icon: di("postgresql"),
-            link: "https://www.postgresql.org"
-          },
-          {
-            name: "Google Cloud",
-            icon: di("googlecloud"),
-            link: "https://cloud.google.com"
-          },
-          {
-            name: "Docker",
-            icon: di("docker"),
-            link: "https://www.docker.com"
-          }
+          { name: "MongoDB", icon: di("mongodb"), link: "https://www.mongodb.com" },
+          { name: "PostgreSQL", icon: di("postgresql"), link: "https://www.postgresql.org" },
+          { name: "Google Cloud", icon: di("googlecloud"), link: "https://cloud.google.com" },
+          { name: "Docker", icon: di("docker"), link: "https://www.docker.com" }
         ]
       },
       {
         name: "Tools & Workflow",
-        icon: "mdi-wrench-outline",
         skills: [
-          {
-            name: "Git",
-            icon: di("git"),
-            link: "https://git-scm.com"
-          },
-          {
-            name: "VS Code",
-            icon: di("vscode"),
-            link: "https://code.visualstudio.com"
-          },
-          {
-            name: "Postman",
-            icon: di("postman"),
-            link: "https://www.postman.com"
-          },
-          {
-            name: "Unity",
-            icon: di("unity"),
-            link: "https://unity.com"
-          }
+          { name: "Git", icon: di("git"), link: "https://git-scm.com" },
+          { name: "VS Code", icon: di("vscode"), link: "https://code.visualstudio.com" },
+          { name: "Postman", icon: di("postman"), link: "https://www.postman.com" },
+          { name: "Unity", icon: di("unity"), link: "https://unity.com" }
         ]
       }
     ]
@@ -221,50 +147,87 @@ export default {
 <style scoped>
 .skills-page {
   min-height: 100vh;
+  background: var(--paper);
 }
 
-/* Section header */
+/* Section masthead */
 .section-header {
-  padding: 5rem 0 2.5rem;
-  text-align: center;
+  padding: 4.5rem 0 2.5rem;
 }
 
-.section-eyebrow {
-  font-family: 'Caveat', cursive !important;
-  font-size: 1.4rem;
-  color: #6366f1;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+.mast-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.mast-row .editorial-eyebrow {
+  white-space: nowrap;
+}
+
+.mast-row .editorial-rule {
+  flex: 1;
+  margin: 0;
 }
 
 .section-title {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-bottom: 0.75rem;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(2.2rem, 5.4vw, 3.8rem);
+  font-weight: 500;
+  letter-spacing: -0.032em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.period {
+  color: var(--suggest-fg);
 }
 
 .section-desc {
-  font-size: 0.95rem;
-  opacity: 0.55;
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.6;
+  font-family: var(--font-serif) !important;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0;
 }
 
 /* Category */
+.skill-category {
+  margin-bottom: 3rem;
+}
+
 .category-header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.category-num {
+  font-family: var(--font-mono) !important;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--text-soft);
 }
 
 .category-title {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: var(--font-serif) !important;
+  font-size: 1.4rem;
+  font-weight: 500;
   letter-spacing: -0.02em;
+  color: var(--text);
   margin: 0;
+}
+
+.category-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  align-self: center;
+  min-width: 12px;
 }
 
 /* Skill card */
@@ -273,57 +236,82 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 1.1rem 0.75rem;
-  border-radius: 14px;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  gap: 12px;
+  padding: 1.2rem 0.75rem;
+  border-radius: 4px;
+  transition: border-color 0.22s ease, transform 0.22s ease;
   text-align: center;
   aspect-ratio: 1;
-}
-
-.skill-card-light {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: var(--paper);
+  border: 1px solid var(--rule);
 }
 
 .skill-card-dark {
-  background: #16161f;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--paper-warm);
 }
 
 .skill-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
-}
-
-.skill-card-dark:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
 }
 
 .skill-icon {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   transition: transform 0.22s ease;
+  filter: grayscale(0.15);
 }
 
 .skill-card:hover .skill-icon {
-  transform: scale(1.08);
+  transform: scale(1.06);
+  filter: grayscale(0);
 }
 
 .skill-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  opacity: 0.7;
+  font-family: var(--font-mono) !important;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
   line-height: 1.2;
 }
 
-/* Responsive */
 @media (max-width: 960px) {
   .section-header {
-    padding: 3.5rem 0 2rem;
-    text-align: left;
+    padding: 3rem 0 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-header {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .mast-row {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+  .section-desc {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+  .category-header {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .category-title {
+    font-size: 1.25rem;
+  }
+  .skill-card {
+    padding: 0.9rem 0.5rem;
+    gap: 8px;
+  }
+  .skill-icon {
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
