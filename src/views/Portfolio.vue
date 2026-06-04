@@ -114,6 +114,30 @@ export default {
           linkLabel: "Visit Wordsmith"
         },
         {
+          title: "ythopper",
+          description:
+            "Drop in a YouTube link or podcast and ask what you want to learn — ythopper edits the long-form down to a tight reel of only the moments that answer you, bridges and all, in the speaker's own voice.",
+          category: "STARTUP · LIVE",
+          year: "2026",
+          mediaType: "image",
+          mediaSrc: require("../assets/ythopper.png"),
+          tags: ["Next.js", "AI", "Whisper", "Chrome Extension"],
+          link: "https://www.ythopper.com/",
+          linkLabel: "Visit ythopper"
+        },
+        {
+          title: "Claude Terminal",
+          description:
+            "A desktop workspace that pairs a code viewer with an embedded Claude CLI — stage code selections, dropped images, and file references, then hand them to Claude without ever leaving the window.",
+          category: "OPEN SOURCE",
+          year: "2026",
+          mediaType: "image",
+          mediaSrc: require("../assets/claude-terminal.png"),
+          tags: ["Electron", "React", "TypeScript", "Tailwind"],
+          link: "https://github.com/yash296/claude-terminal",
+          linkLabel: "View on GitHub"
+        },
+        {
           title: "Paw Search",
           description:
             "Founder and developer. A one-stop platform simplifying pet adoption across India — connecting adopters with shelters and breeders in their city.",
